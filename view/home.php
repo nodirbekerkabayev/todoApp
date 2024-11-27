@@ -14,18 +14,37 @@
             background-image: url('https://images.pexels.com/photos/628241/pexels-photo-628241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
             background-size: cover;
             background-position: center;
+        }
 
         .todo-body {
             max-width: 700px;
             box-shadow: 0 0 5px 5px #ccc;
+            backface-visibility: hidden;
+            background-color: #f4f0ec;
+            border-radius: 20px;
+            padding: 20px;
         }
 
         .todo-text {
             font-weight: bold;
         }
+        .completed {
+            text-decoration: line-through;
+            color: green;
+        }
+        .in_progress {
+            color: #ffc40c;
+        }
     </style>
 </head>
 <body>
+
+<?php
+
+/** @var TYPE_NAME $todos */
+
+
+?>
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="todo-body my-5 p-3">
@@ -38,33 +57,33 @@
                     <input type="text" class="form-control" placeholder="Recipient's username"
                            aria-label="Recipient's username" aria-describedby="button-addon2"
                            name="title"
+                           required
                     >
                     <input type="datetime-local" class="form-control" placeholder="Recipient's username"
                            aria-label="Recipient's username" aria-describedby="button-addon2"
                            name="due_date"
+                           required
                     >
                     <button class="btn btn-primary" type="submit" id="button-addon2">Add</button>
                 </div>
             </form>
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    An item
-                    <button class="btn btn-outline-success">Done</button>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    An item
-                    <button class="btn btn-outline-success">Done</button>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    An item
-                    <button class="btn btn-outline-success">Done</button>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    An item
-                    <button class="btn btn-outline-success">Done</button>
-                </li>
-            </ul>
+
+                    <?php
+                    foreach ($todos as $todo) {
+                        $isInProgress = $todo['status'] == 'inProgress' ? 'in_progress' : '';
+                        $isCompleted = $todo['status'] == 'completed' ? 'completed' : '';
+                        echo '<li class="' . $todo['status'] . ' list-group-item d-flex justify-content-between align-items-center">
+                        ' . $todo["title"] . '
+                        <div>
+                        <a href="/inProgress?id=' . $todo["id"] . '" class="btn btn-outline-success">In progress</a>
+                        <a href="/complete?id=' . $todo["id"] . '" class="btn btn-outline-success">Complete</a>
+                        </div>
+                        </li>';
+                    }
+                        ?>
         </div>
+        </ul>
     </div>
 </div>
 </body>
