@@ -35,6 +35,13 @@ elseif ($uri== '/inProgress'){
         exit();
     }
 }
+elseif ($uri == '/pending') {
+    if(!empty($_GET['id'])){
+        $todo->pending($_GET['id']);
+        header('Location: /');
+        exit();
+    }
+}
 else {
     echo "404 NOT FOUND";
 }

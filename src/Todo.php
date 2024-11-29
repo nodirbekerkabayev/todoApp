@@ -21,11 +21,15 @@ class Todo {
         return $stmt->fetchAll();
     }
     public function complete(int $id): bool{
-        $query = "UPDATE todos SET status='completed' where id=:id";
+        $query = "UPDATE todos SET status='completed', updated_at = NOW() where id=:id";
         return $this->pdo->prepare($query)->execute(params: array(":id" => $id));
     }
     public function inProgress(int $id): bool{
-        $query = "UPDATE todos SET status='in_progress' where id=:id";
+        $query = "UPDATE todos SET status='in_progress', updated_at = NOW() where id=:id";
+        return $this->pdo->prepare($query)->execute(params: array(":id" => $id));
+    }
+    public function pending(int $id): bool{
+        $query = "UPDATE todos SET status='pending', updated_at = NOW() where id=:id";
         return $this->pdo->prepare($query)->execute(params: array(":id" => $id));
     }
 }
