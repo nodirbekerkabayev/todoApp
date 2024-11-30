@@ -33,6 +33,7 @@
             color: green;
         }
         .in_progress {
+            text-decoration: underline;
             color: #ffc40c;
         }
         .pending {
