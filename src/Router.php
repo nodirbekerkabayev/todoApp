@@ -9,11 +9,23 @@ class Router
         $this->currentRoute = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     }
 
+    public function getResources(){
+        if(isset(explode('/', $this->currentRoute)[2])){
+            $resourceId =  explode('/', $this->currentRoute)[2];
+            return $resourceId;
+        }
+        return false;
+    }
+
     public function get($route, $callback): void
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'GET' && $this->currentRoute == $route) {
-            $callback();
-            exit();
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $resourceId = $this->getResources();
+            $route = str_replace('{id}', $resourceId, $route);
+            if ($route == $this->currentRoute){
+                $callback($resourceId);
+                exit();
+            }
         }
     }
 
