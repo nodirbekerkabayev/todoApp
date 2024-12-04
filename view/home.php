@@ -17,6 +17,7 @@
             background-position: center;
             font-family: Arial, sans-serif;
         }
+
         a {
             display: inline-block;
             width: 300px;
@@ -31,6 +32,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s, box-shadow 0.2s;
         }
+
         a:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -38,6 +40,6 @@
     </style>
 </head>
 <body>
-<a href="/todos">Bosh sahifa</a>
+<a href="/todos">Main Page</a>
 </body>
 </html>

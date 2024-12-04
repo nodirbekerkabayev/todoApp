@@ -32,43 +32,25 @@ $router->post('/store', function () use ($todo) {
     exit();
 });
 
-$router->get('/complete/{id}', function ($todoId) use ($todo) {
-        $todo->complete($todoId);
-        header('Location: /todos');
-        exit();
+$router->get('/todos/{id}/delete', function ($todoId) use ($todo) {
+    $todo->destroy($todoId);
+    redirect('/todos');
 });
 
-$router->get('/inProgress/{id}', function ($todoId) use ($todo) {
-        $todo->inProgress($todoId);
-        header('Location: /todos');
-        exit();
-});
-
-$router->get('/pending/{id}', function ($todoId) use ($todo) {
-        $todo->pending($todoId);
-        header('Location: /todos');
-        exit();
-});
-
-$router->get('/todos/{id}/edit', function ($todoId) use($todo){
+$router->get('/todos/{id}/edit', function ($todoId) use ($todo) {
     echo 'Edit the task: ' . $todoId;
     $getTodo = $todo->getTodo($todoId);
     view('edit', [
-        'todo'=>$getTodo
+        'todo' => $getTodo
     ]);
 });
 
-$router->get('/', function () {
-    view('home');
-});
-$router->get('/edit', function () {
-    view('edit');
-});
-$router->get('/todos/{id}/edit', function ($todoId) {
-    echo 'Edit the task: ' . $todoId;
-});
-
-$router->get('/todos/{id}/delete', function ($todoId) use($todo){
-    $todo->destroy($todoId);
+$router->put('/todos/{id}/update', function ($todoId) use ($todo) {
+    $todo->update(
+        $todoId,
+        $_POST['title'],
+        $_POST['status'],
+        $_POST['due_date']
+    );
     redirect('/todos');
 });

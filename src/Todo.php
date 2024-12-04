@@ -31,37 +31,34 @@ class Todo
         return $stmt->fetchAll();
     }
 
-    public function complete(int $id): bool
+    public function destroy(int $id): bool
     {
-        $query = "UPDATE todos SET status='completed', updated_at = NOW() where id=:id";
-        return $this->pdo->prepare($query)->execute(params: array(":id" => $id));
-    }
-
-    public function inProgress(int $id): bool
-    {
-        $query = "UPDATE todos SET status='in_progress', updated_at = NOW() where id=:id";
-        return $this->pdo->prepare($query)->execute(params: array(":id" => $id));
-    }
-
-    public function pending(int $id): bool
-    {
-        $query = "UPDATE todos SET status='pending', updated_at = NOW() where id=:id";
-        return $this->pdo->prepare($query)->execute(params: array(":id" => $id));
-    }
-
-    public function destroy (int $id): bool {
         $query = "DELETE FROM todos WHERE id=:id";
         return $this->pdo->prepare($query)->execute([
             ":id" => $id
         ]);
     }
 
-    public function getTodo (int $id) {
+    public function getTodo(int $id)
+    {
         $query = "SELECT * FROM todos WHERE id=:id";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([
             ":id" => $id
         ]);
         return $stmt->fetch();
-    }}
+    }
 
+    public function update(int $id, string $title, string $status, string $due_date): bool
+    {
+        $due_date = new DateTime($due_date);
+        $due_date = $due_date->format('Y-m-d H:i:s');
+        $query = "UPDATE todos SET title=:title, status=:status, due_date=:due_date, updated_at = NOW() where id=:id";
+        return $this->pdo->prepare($query)->execute([
+            ":id" => $id,
+            ":title" => $title,
+            ":status" => $status,
+            ":due_date" => $due_date
+        ]);
+    }
+}
