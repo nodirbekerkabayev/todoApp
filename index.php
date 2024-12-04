@@ -49,3 +49,26 @@ $router->get('/pending/{id}', function ($todoId) use ($todo) {
         header('Location: /todos');
         exit();
 });
+
+$router->get('/todos/{id}/edit', function ($todoId) use($todo){
+    echo 'Edit the task: ' . $todoId;
+    $getTodo = $todo->getTodo($todoId);
+    view('edit', [
+        'todo'=>$getTodo
+    ]);
+});
+
+$router->get('/', function () {
+    view('home');
+});
+$router->get('/edit', function () {
+    view('edit');
+});
+$router->get('/todos/{id}/edit', function ($todoId) {
+    echo 'Edit the task: ' . $todoId;
+});
+
+$router->get('/todos/{id}/delete', function ($todoId) use($todo){
+    $todo->destroy($todoId);
+    redirect('/todos');
+});
