@@ -1,15 +1,11 @@
 <?php
 
 require 'src/Todo.php';
-
 require 'helpers.php';
-
 require 'src/Router.php';
-
 require 'bootstrap.php';
 
 $router = new Router();
-
 $todo = new Todo();
 
 $router->get('/', callback: function () use ($todo) {
@@ -54,4 +50,11 @@ $router->put('/todos/{id}/update', function ($todoId) use ($todo) {
         $_POST['due_date']
     );
     redirect('/todos');
+});
+
+$router->get('/telegram', function () use ($router) {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    require 'app/telegram.php';
+    echo 'telegram ishladi';
 });
