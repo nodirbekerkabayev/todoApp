@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 require __DIR__ . '/../vendor/autoload.php';
 
 use GuzzleHttp\Client;
@@ -12,8 +14,6 @@ class Bot
 
     public function __construct()
     {
-        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-        $dotenv->load();
 
         $this->token = $_ENV['TELEGRAM_TOKEN'];
         $this->client = new Client([

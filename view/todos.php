@@ -1,43 +1,44 @@
 <?php
 require 'view/components/header.php';
 ?>
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="todo-body my-5 p-3">
-            <h1 class="text-center todo-text">Todo App</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam autem eveniet illum ipsa, nihil
-                numquam officiis pariatur placeat quae quasi recusandae repellat similique tempora tenetur ut vel veniam
-                veritatis.</p>
-            <div class="input-group flex-nowrap col-md-4">
-                <span class="input-group-text" id="addon-wrapping">
-                <i class="fas fa-search"></i>
-                </span>
-                <input type="text" class="form-control" placeholder="Izlash" aria-label="Izlash"
-                       aria-describedby="addon-wrapping">
-            </div>
-            <form method="POST" action="/store" class="mt-4">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Recipient's username"
-                           aria-label="Recipient's username" aria-describedby="button-addon2"
-                           name="title"
-                           required
-                    >
-                    <input type="datetime-local" class="form-control" placeholder="Recipient's username"
-                           aria-label="Recipient's username" aria-describedby="button-addon2"
-                           name="due_date"
-                           required
-                    >
-                    <button class="btn btn-primary" type="submit" id="button-addon2">Add</button>
-                </div>
-            </form>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="todo-body my-5 p-3">
+                <h1 class="text-center todo-text">Todo App</h1>
+                <form method="POST" action="/search">
+                    <div class="input-group flex-nowrap col-md-4">
+                        <span class="input-group-text" id="addon-wrapping">
+                        <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                               aria-describedby="addon-wrapping"
+                                name="search">
+                        <button class="btn btn-primary" type="submit" id="button1">Search</button>
+                    </div>
+                </form>
+                <form method="POST" action="/store" class="mt-4">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Recipient's username"
+                               aria-label="Recipient's username" aria-describedby="button-addon2"
+                               name="title"
+                               required
+                        >
+                        <input type="datetime-local" class="form-control" placeholder="Recipient's username"
+                               aria-label="Recipient's username" aria-describedby="button-addon2"
+                               name="due_date"
+                               required
+                        >
+                        <button class="btn btn-primary" type="submit" id="button-addon2">Add</button>
+                    </div>
+                </form>
 
-            <ul class="list-group">
+                <ul class="list-group">
 
-                <?php
-                /** @var TYPE_NAME $todos */
+                    <?php
+                    /** @var TYPE_NAME $todos */
 
-                foreach ($todos as $todo) {
-                    echo '
+                    foreach ($todos as $todo) {
+                        echo '
                           <li class="' . $todo['status'] . ' list-group-item d-flex justify-content-between align-items-center">
                             ' . $todo["title"] . '
                             <div>
@@ -46,12 +47,12 @@ require 'view/components/header.php';
                             </div>
                         </li>
                             ';
-                }
-                ?>
+                    }
+                    ?>
+            </div>
+            </ul>
         </div>
-        </ul>
     </div>
-</div>
 <?php
 require 'view/components/footer.php';
 ?>

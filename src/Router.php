@@ -1,8 +1,9 @@
 <?php
 
+namespace App;
 class Router
 {
-    public string|array|int|null|false $currentRoute;
+    public $currentRoute;
 
     public function __construct()
     {

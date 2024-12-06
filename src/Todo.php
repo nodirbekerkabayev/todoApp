@@ -1,9 +1,10 @@
 <?php
-require "DB.php";
+namespace App;
 
+use App;
 class Todo
 {
-    public PDO $pdo;
+    public $pdo;
 
     public function __construct()
     {
@@ -51,7 +52,7 @@ class Todo
 
     public function update(int $id, string $title, string $status, string $due_date): bool
     {
-        $due_date = new DateTime($due_date);
+        $due_date = new \DateTime($due_date);
         $due_date = $due_date->format('Y-m-d H:i:s');
         $query = "UPDATE todos SET title=:title, status=:status, due_date=:due_date, updated_at = NOW() where id=:id";
         return $this->pdo->prepare($query)->execute([
@@ -61,4 +62,13 @@ class Todo
             ":due_date" => $due_date
         ]);
     }
+//    public function search(string $title)
+//    {
+//        $query = "SELECT * FROM todos WHERE title=:title";
+//        $stmt = $this->pdo->prepare($query);
+//        $stmt->execute([
+//            ":title" => $title
+//        ]);
+//        return $stmt->fetchAll();
+//    }
 }
