@@ -7,15 +7,15 @@ require 'view/components/header.php';
                 <h1 class="text-center todo-text">Todo App</h1>
                 <form method="POST" action="/search">
                     <div class="input-group flex-nowrap col-md-4">
-                        <span class="input-group-text" id="addon-wrapping">
-                        <i class="fas fa-search"></i>
-                        </span>
+        <span class="input-group-text" id="addon-wrapping">
+            <i class="fas fa-search"></i>
+        </span>
                         <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-                               aria-describedby="addon-wrapping"
-                                name="search">
-                        <button class="btn btn-primary" type="submit" id="button1">Search</button>
+                               aria-describedby="addon-wrapping" name="search" required>
+                        <button name="search" type="submit" class="btn btn-primary">Search</button>
                     </div>
                 </form>
+
                 <form method="POST" action="/store" class="mt-4">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Recipient's username"

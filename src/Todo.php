@@ -62,13 +62,13 @@ class Todo
             ":due_date" => $due_date
         ]);
     }
-//    public function search(string $title)
-//    {
-//        $query = "SELECT * FROM todos WHERE title=:title";
-//        $stmt = $this->pdo->prepare($query);
-//        $stmt->execute([
-//            ":title" => $title
-//        ]);
-//        return $stmt->fetchAll();
-//    }
+    public function search(string $title)
+    {
+        $query = "SELECT * FROM todos WHERE title=:title";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([
+            ":title" => $title
+        ]);
+        return $stmt->fetchAll();
+    }
 }

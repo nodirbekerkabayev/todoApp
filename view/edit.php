@@ -4,7 +4,7 @@ require 'view/components/header.php';
 <div class="edit-container">
     <h2 class="edit-header">Edit Task</h2>
     <form method="POST" , action="/todos/<?= $todo['id'] ?>/update">
-        <input name="_method" , value="PUT" type="text" , hidden="">
+        <input name="_method" value="PUT" type="text" hidden="">
         <div class="form-group">
             <label for="taskName" class="form-label">Task Name</label>
             <input type="text" id="taskName" class="form-control" placeholder="Enter task name" name="title"

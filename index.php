@@ -14,6 +14,6 @@ $router->get('/todos', fn() => require 'controllers/showTodosController.php');
 $router->get('/todos/{id}/edit', fn($todoId) => require 'controllers/editController.php');
 $router->get('/todos/{id}/delete', fn($todoId) => require 'controllers/deleteController.php');
 $router->get('/telegram', fn() => require 'controllers/telegramController.php');
-$router->get('/searchh', fn() => require 'controllers/searchController.php');
+$router->post('/test', fn() => print 'test');
 $router->put('/todos/{id}/update', fn($todoId) => require 'controllers/updateController.php');
 $router->post('/store', fn() => require 'controllers/storeController.php');
