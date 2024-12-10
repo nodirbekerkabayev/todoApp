@@ -10,6 +10,8 @@ $router = new Router();
 $todo = new Todo();
 
 $router->get('/', fn() => require 'controllers/homeController.php');
+$router->get('/register', fn() => view('register'));
+$router->get('/login', fn() => view('login'));
 $router->get('/todos', fn() => require 'controllers/showTodosController.php');
 $router->get('/todos/{id}/edit', fn($todoId) => require 'controllers/editController.php');
 $router->get('/todos/{id}/delete', fn($todoId) => require 'controllers/deleteController.php');

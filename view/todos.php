@@ -1,5 +1,6 @@
 <?php
 require 'view/components/header.php';
+require 'view/components/navbar.php';
 ?>
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -53,6 +54,8 @@ require 'view/components/header.php';
             </ul>
         </div>
     </div>
-<?php
-require 'view/components/footer.php';
-?>
+<div style="position: fixed; width: 100%; bottom: 0; ">
+    <?php
+    require 'view/components/footer.php';
+    ?>
+</div>

@@ -16,7 +16,6 @@ require 'view/components/navbar.php';
     </div>
 </div>
 
-<!-- Testimonials Section -->
 <div class="testimonials">
     <div class="row justify-content-center">
         <div class="col-md-3">
@@ -34,6 +33,9 @@ require 'view/components/navbar.php';
     </div>
 </div>
 
-<?php
-require 'view/components/footer.php';
-?>
+<div style="position: fixed; width: 100%; bottom: 0; ">
+    <?php
+    require 'view/components/footer.php';
+    ?>
+</div>
+

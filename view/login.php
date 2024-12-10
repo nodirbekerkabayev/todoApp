@@ -23,6 +23,8 @@ require 'view/components/navbar.php';
     </p>
 </div>
 
-<?php
-require 'view/components/footer.php';
-?>
+<div style="position: fixed; width: 100%; bottom: 0; ">
+    <?php
+    require 'view/components/footer.php';
+    ?>
+</div>

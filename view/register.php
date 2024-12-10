@@ -2,7 +2,6 @@
 require 'view/components/header.php';
 require 'view/components/navbar.php';
 ?>
-
 <div class="form-container">
     <h2 class="text-center mb-4">Register</h2>
     <form>
@@ -30,7 +29,8 @@ require 'view/components/navbar.php';
         Already have an account? <a href="/login">Login</a>
     </p>
 </div>
-
-<?php
-require 'view/components/footer.php';
-?>
+<div style="position: fixed; width: 100%; bottom: 0; ">
+    <?php
+    require 'view/components/footer.php';
+    ?>
+</div>
