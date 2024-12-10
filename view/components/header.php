@@ -8,21 +8,75 @@
     <title>Todo App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-        body {
-            background-image: url('https://images.pexels.com/photos/628241/pexels-photo-628241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-            background-size: cover;
-            background-position: center;
+        html{
+            height: 100%;
+            margin: 0;
+        }
+
+        .container-home {
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f1f1f1;
+        }
+
+        .navbar {
+            border-bottom: 1px solid #ddd;
+        }
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 50px 20px;
+        }
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .btn-primary-home {
+            background-color: #ff5722;
+            border: none;
+        }
+        .testimonials {
+            background: #f7f7f7;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .testimonials .quote {
+            font-style: italic;
+            color: #555;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f1f1f1;
         }
 
         .todo-body {
             max-width: 700px;
             box-shadow: 0 0 5px 5px #ccc;
-            backface-visibility: hidden;
-            background-color: #f4f0ec;
-            border-radius: 20px;
-            padding: 20px;
         }
 
         .todo-text {
@@ -36,23 +90,11 @@
 
         .in_progress {
             text-decoration: underline;
-            color: #ffc40c;
+            color: orange;
         }
-
-        .pending {
-            color: #b10122;
+        .home-body {
+            background-color: #f8f9fa;
         }
-
-        body {
-            background-image: url('https://images.pexels.com/photos/628241/pexels-photo-628241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-            background-size: cover;
-            background-position: center;
-        }
-
-        body {
-            background-color: #b5b7ba;
-        }
-
         .edit-container {
             max-width: 600px;
             margin: 50px auto;
@@ -61,52 +103,25 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         .edit-header {
             text-align: center;
             margin-bottom: 20px;
         }
-
         .form-group {
             margin-bottom: 15px;
         }
-
         .btn-actions {
             display: flex;
             justify-content: space-between;
         }
-
-        .home {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('https://images.pexels.com/photos/628241/pexels-photo-628241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-            background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        .A {
-            display: inline-block;
-            width: 300px;
-            height: 100px;
-            line-height: 100px;
-            font-size: 20px;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .A:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        /*}*/
     </style>
 </head>
 <body>
